@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { motion } from 'framer-motion';
+// import { motion } from 'framer-motion';
 import { Copy, Volume2, Sparkles, RefreshCw } from 'lucide-react';
 import { SCENARIOS } from '@/lib/constants';
 import { generateScript } from '@/lib/utils';
@@ -45,11 +45,7 @@ export function ScriptViewer({ language }: ScriptViewerProps) {
   };
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      className="space-y-6"
-    >
+    <div className="space-y-6">
       {/* Header */}
       <div className="text-center">
         <h2 className="text-2xl font-bold text-white mb-2 flex items-center justify-center space-x-2">
@@ -110,11 +106,7 @@ export function ScriptViewer({ language }: ScriptViewerProps) {
 
       {/* Generated Script */}
       {generatedScript && (
-        <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
-          className="script-card"
-        >
+        <div className="script-card">
           <div className="flex items-center justify-between mb-4">
             <h3 className="text-lg font-semibold text-white">
               {language === 'en' ? 'Generated Script' : 'Script Generado'}
@@ -149,8 +141,8 @@ export function ScriptViewer({ language }: ScriptViewerProps) {
               {language === 'en' ? 'AI Generated' : 'Generado por IA'}
             </span>
           </div>
-        </motion.div>
+        </div>
       )}
-    </motion.div>
+    </div>
   );
 }

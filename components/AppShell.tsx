@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
+// import { motion } from 'framer-motion';
 import { MapPin, Globe, Settings2, Menu, X } from 'lucide-react';
 import { getCurrentLocation } from '@/lib/utils';
 import { STATES } from '@/lib/constants';
@@ -75,12 +75,7 @@ export function AppShell({
 
       {/* Mobile Menu */}
       {isMenuOpen && (
-        <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -20 }}
-          className="absolute top-20 right-4 z-20 glass-card p-4 min-w-48"
-        >
+        <div className="absolute top-20 right-4 z-20 glass-card p-4 min-w-48">
           <div className="space-y-3">
             <button className="flex items-center space-x-2 w-full text-left hover:text-pink-300 transition-colors duration-200">
               <Settings2 className="w-4 h-4" />
@@ -92,7 +87,7 @@ export function AppShell({
               </p>
             </div>
           </div>
-        </motion.div>
+        </div>
       )}
 
       {/* Main Content */}

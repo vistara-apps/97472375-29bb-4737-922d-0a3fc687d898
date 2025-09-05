@@ -1,7 +1,6 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
 import { useMiniKit } from '@coinbase/onchainkit/minikit';
 import { AppShell } from '@/components/AppShell';
 import { StateGuideDisplay } from '@/components/StateGuideDisplay';
@@ -39,16 +38,12 @@ export default function HomePage() {
   if (isLoading) {
     return (
       <div className="min-h-screen flex items-center justify-center">
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          className="text-center"
-        >
+        <div className="text-center">
           <div className="w-16 h-16 border-4 border-white border-opacity-30 border-t-white rounded-full animate-spin mx-auto mb-4" />
           <p className="text-white text-lg">
             {language === 'en' ? 'Loading your rights...' : 'Cargando tus derechos...'}
           </p>
-        </motion.div>
+        </div>
       </div>
     );
   }
@@ -61,11 +56,7 @@ export default function HomePage() {
     >
       <div className="max-w-4xl mx-auto space-y-6">
         {/* Hero Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="text-center py-8"
-        >
+        <div className="text-center py-8">
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-4 gradient-text">
             KnowYourRights.fyi
           </h1>
@@ -81,15 +72,10 @@ export default function HomePage() {
               : 'Conoce tus derechos. Mantente seguro. Mantente informado.'
             }
           </p>
-        </motion.div>
+        </div>
 
         {/* Navigation Tabs */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.1 }}
-          className="glass-card p-2"
-        >
+        <div className="glass-card p-2">
           <div className="grid grid-cols-4 gap-2">
             {tabs.map((tab) => {
               const Icon = tab.icon;
@@ -109,15 +95,10 @@ export default function HomePage() {
               );
             })}
           </div>
-        </motion.div>
+        </div>
 
         {/* Tab Content */}
-        <motion.div
-          key={activeTab}
-          initial={{ opacity: 0, x: 20 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.3 }}
-        >
+        <div>
           {activeTab === 'rights' && (
             <StateGuideDisplay location={currentLocation} language={language} />
           )}
@@ -135,7 +116,7 @@ export default function HomePage() {
           {activeTab === 'share' && (
             <ShareCardGenerator location={currentLocation} language={language} />
           )}
-        </motion.div>
+        </div>
       </div>
     </AppShell>
   );

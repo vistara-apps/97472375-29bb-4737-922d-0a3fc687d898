@@ -1,8 +1,5 @@
 'use client';
 
-import { motion } from 'framer-motion';
-import { AlertTriangle, RefreshCw } from 'lucide-react';
-
 export default function Error({
   error,
   reset,
@@ -12,12 +9,7 @@ export default function Error({
 }) {
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-purple-600 via-blue-600 to-indigo-800 p-4">
-      <motion.div
-        initial={{ opacity: 0, scale: 0.9 }}
-        animate={{ opacity: 1, scale: 1 }}
-        className="glass-card p-8 text-center max-w-md w-full"
-      >
-        <AlertTriangle className="w-16 h-16 text-red-400 mx-auto mb-4" />
+      <div className="bg-white bg-opacity-10 backdrop-blur-lg border border-white border-opacity-20 rounded-lg shadow-lg p-8 text-center max-w-md w-full">
         <h2 className="text-2xl font-bold text-white mb-4">
           Something went wrong!
         </h2>
@@ -26,12 +18,11 @@ export default function Error({
         </p>
         <button
           onClick={reset}
-          className="glass-button bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600"
+          className="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 px-6 py-3 rounded-lg text-white font-medium transition-all duration-200"
         >
-          <RefreshCw className="w-5 h-5" />
-          <span>Try Again</span>
+          Try Again
         </button>
-      </motion.div>
+      </div>
     </div>
   );
 }
