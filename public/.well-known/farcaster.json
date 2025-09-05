@@ -1,0 +1,30 @@
+{
+  "accountAssociation": {
+    "header": "",
+    "payload": "",
+    "signature": ""
+  },
+  "frame": {
+    "version": "1",
+    "name": "KnowYourRights.Fyi",
+    "subtitle": "Built with Zara",
+    "description": "KnowYourRights.Fyi is a Base Mini App built with Zara.",
+    "iconUrl": "https://0co.to/images/zara-2.png",
+    "homeUrl": "https://9747237529bb4737922d0a3fc687d898-5pqa.vercel.app",
+    "splashImageUrl": "https://9747237529bb4737922d0a3fc687d898-5pqa.vercel.app/splash.png",
+    "splashBackgroundColor": "#000000",
+    "heroImageUrl": "https://9747237529bb4737922d0a3fc687d898-5pqa.vercel.app/image.png",
+    "tagline": "KnowYourRights.Fyi",
+    "screenshotUrls": [
+      "https://9747237529bb4737922d0a3fc687d898-5pqa.vercel.app/screenshot.png",
+      "https://9747237529bb4737922d0a3fc687d898-5pqa.vercel.app/screenshot.png"
+    ],
+    "primaryCategory": "social",
+    "tags": [
+      "base",
+      "miniapp",
+      "onchainkit"
+    ],
+    "webhookUrl": "https://9747237529bb4737922d0a3fc687d898-5pqa.vercel.app/api/webhook"
+  }
+}

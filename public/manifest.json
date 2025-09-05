@@ -1,0 +1,14 @@
+{
+  "name": "KnowYourRights.Fyi",
+  "description": "KnowYourRights.Fyi is a Base Mini App built with Zara.",
+  "image": "https://dummyimage.com/1200x628/0a0b0d/ffffff.png&text=OG",
+  "external_url": "https://97472375-29bb-4737-922d-0a3fc687d898.vercel.app",
+  "properties": {
+    "app": {
+      "name": "KnowYourRights.Fyi",
+      "description": "KnowYourRights.Fyi is a Base Mini App built with Zara.",
+      "url": "https://97472375-29bb-4737-922d-0a3fc687d898.vercel.app",
+      "icon": "https://0co.to/images/zara-2.png"
+    }
+  }
+}
