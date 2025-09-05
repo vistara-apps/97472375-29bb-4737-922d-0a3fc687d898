@@ -1,6 +1,6 @@
 'use client';
 
-import { motion } from 'framer-motion';
+// import { motion } from 'framer-motion';
 import { CheckCircle, XCircle, MessageCircle, MapPin } from 'lucide-react';
 import { DEFAULT_RIGHTS, STATES } from '@/lib/constants';
 import type { LocationData } from '@/lib/types';
@@ -14,30 +14,10 @@ export function StateGuideDisplay({ location, language }: StateGuideDisplayProps
   const rights = DEFAULT_RIGHTS[language];
   const stateName = location ? STATES[location.state as keyof typeof STATES] : 'Unknown';
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1
-      }
-    }
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0 }
-  };
-
   return (
-    <motion.div
-      variants={containerVariants}
-      initial="hidden"
-      animate="visible"
-      className="space-y-6"
-    >
+    <div className="space-y-6">
       {/* Location Header */}
-      <motion.div variants={itemVariants} className="text-center">
+      <div className="text-center">
         <div className="flex items-center justify-center space-x-2 mb-2">
           <MapPin className="w-5 h-5 text-pink-400" />
           <h2 className="text-2xl font-bold text-white">
@@ -50,12 +30,12 @@ export function StateGuideDisplay({ location, language }: StateGuideDisplayProps
             : 'Esta información se basa en tu ubicación actual y principios legales generales.'
           }
         </p>
-      </motion.div>
+      </div>
 
       {/* Rights Cards */}
       <div className="grid gap-6 md:grid-cols-3">
         {/* What You Can Do */}
-        <motion.div variants={itemVariants} className="rights-guide">
+        <div className="rights-guide">
           <div className="flex items-center space-x-2 mb-4">
             <CheckCircle className="w-6 h-6 text-green-400" />
             <h3 className="text-lg font-semibold text-white">
@@ -72,10 +52,10 @@ export function StateGuideDisplay({ location, language }: StateGuideDisplayProps
               </li>
             ))}
           </ul>
-        </motion.div>
+        </div>
 
         {/* What You Cannot Do */}
-        <motion.div variants={itemVariants} className="rights-guide">
+        <div className="rights-guide">
           <div className="flex items-center space-x-2 mb-4">
             <XCircle className="w-6 h-6 text-red-400" />
             <h3 className="text-lg font-semibold text-white">
@@ -92,10 +72,10 @@ export function StateGuideDisplay({ location, language }: StateGuideDisplayProps
               </li>
             ))}
           </ul>
-        </motion.div>
+        </div>
 
         {/* What to Say */}
-        <motion.div variants={itemVariants} className="rights-guide">
+        <div className="rights-guide">
           <div className="flex items-center space-x-2 mb-4">
             <MessageCircle className="w-6 h-6 text-blue-400" />
             <h3 className="text-lg font-semibold text-white">
@@ -112,18 +92,18 @@ export function StateGuideDisplay({ location, language }: StateGuideDisplayProps
               </li>
             ))}
           </ul>
-        </motion.div>
+        </div>
       </div>
 
       {/* Disclaimer */}
-      <motion.div variants={itemVariants} className="glass-card p-4 text-center">
+      <div className="glass-card p-4 text-center">
         <p className="text-xs text-white text-opacity-70">
           {language === 'en' 
             ? '⚠️ This information is for educational purposes only and does not constitute legal advice. Laws may vary by jurisdiction. Consult with a qualified attorney for specific legal guidance.'
             : '⚠️ Esta información es solo para fines educativos y no constituye asesoramiento legal. Las leyes pueden variar según la jurisdicción. Consulta con un abogado calificado para orientación legal específica.'
           }
         </p>
-      </motion.div>
-    </motion.div>
+      </div>
+    </div>
   );
 }

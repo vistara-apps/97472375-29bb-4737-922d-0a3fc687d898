@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { motion } from 'framer-motion';
+// import { motion } from 'framer-motion';
 import { Share2, Download, Copy, ExternalLink } from 'lucide-react';
 import { formatDate } from '@/lib/utils';
 import toast from 'react-hot-toast';
@@ -62,11 +62,7 @@ export function ShareCardGenerator({ language, location }: ShareCardGeneratorPro
   };
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      className="space-y-6"
-    >
+    <div className="space-y-6">
       {/* Header */}
       <div className="text-center">
         <h2 className="text-2xl font-bold text-white mb-2 flex items-center justify-center space-x-2">
@@ -159,11 +155,7 @@ export function ShareCardGenerator({ language, location }: ShareCardGeneratorPro
 
       {/* Generated Card Preview */}
       {generatedCard && (
-        <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
-          className="glass-card p-6"
-        >
+        <div className="glass-card p-6">
           <div className="flex items-center justify-between mb-4">
             <h3 className="text-lg font-semibold text-white">
               {language === 'en' ? 'Generated Card' : 'Tarjeta Generada'}
@@ -231,8 +223,8 @@ export function ShareCardGenerator({ language, location }: ShareCardGeneratorPro
               </p>
             </div>
           </div>
-        </motion.div>
+        </div>
       )}
-    </motion.div>
+    </div>
   );
 }

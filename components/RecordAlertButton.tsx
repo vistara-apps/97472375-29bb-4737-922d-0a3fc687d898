@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useRef } from 'react';
-import { motion } from 'framer-motion';
+// import { motion } from 'framer-motion';
 import { Mic, MicOff, AlertTriangle, Phone, Square } from 'lucide-react';
 import toast from 'react-hot-toast';
 
@@ -97,11 +97,7 @@ export function RecordAlertButton({
   };
 
   return (
-    <motion.div
-      initial={{ opacity: 0, scale: 0.9 }}
-      animate={{ opacity: 1, scale: 1 }}
-      className="space-y-6"
-    >
+    <div className="space-y-6">
       {/* Header */}
       <div className="text-center">
         <h2 className="text-2xl font-bold text-white mb-2 flex items-center justify-center space-x-2">
@@ -122,11 +118,9 @@ export function RecordAlertButton({
       <div className="glass-card p-8 text-center space-y-6">
         {/* Recording Button */}
         <div className="space-y-4">
-          <motion.button
+          <button
             onClick={isRecording ? stopRecording : startRecording}
             className={`record-button ${isRecording ? 'recording' : ''}`}
-            whileTap={{ scale: 0.95 }}
-            whileHover={{ scale: 1.05 }}
           >
             {isRecording ? (
               <>
@@ -136,7 +130,7 @@ export function RecordAlertButton({
             ) : (
               <Mic className="w-6 h-6 text-white" />
             )}
-          </motion.button>
+          </button>
           
           <div>
             <p className="text-white font-semibold">
@@ -156,7 +150,7 @@ export function RecordAlertButton({
 
         {/* Alert Button */}
         <div className="border-t border-white border-opacity-20 pt-6">
-          <motion.button
+          <button
             onClick={sendAlert}
             disabled={alertSent}
             className={`glass-button w-full justify-center ${
@@ -164,7 +158,6 @@ export function RecordAlertButton({
                 ? 'bg-green-500 bg-opacity-30' 
                 : 'bg-orange-500 bg-opacity-30 hover:bg-opacity-40'
             }`}
-            whileTap={{ scale: 0.98 }}
           >
             <Phone className="w-5 h-5" />
             <span>
@@ -173,7 +166,7 @@ export function RecordAlertButton({
                 : (language === 'en' ? 'Send Emergency Alert' : 'Enviar Alerta de Emergencia')
               }
             </span>
-          </motion.button>
+          </button>
           
           <p className="text-xs text-white text-opacity-60 mt-2">
             {language === 'en' 
@@ -219,6 +212,6 @@ export function RecordAlertButton({
           </li>
         </ul>
       </div>
-    </motion.div>
+    </div>
   );
 }

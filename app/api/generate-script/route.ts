@@ -1,15 +1,14 @@
 import { NextRequest, NextResponse } from 'next/server';
 import OpenAI from 'openai';
 
-const openai = new OpenAI({
-  apiKey: process.env.OPENROUTER_API_KEY || process.env.OPENAI_API_KEY,
-  baseURL: "https://openrouter.ai/api/v1",
-  dangerouslyAllowBrowser: true,
-});
-
 export async function POST(request: NextRequest) {
+  let language = 'en'; // Default language
+  let scenario = '';
+  
   try {
-    const { scenario, language } = await request.json();
+    const body = await request.json();
+    scenario = body.scenario;
+    language = body.language;
 
     const prompt = language === 'en' 
       ? `Generate a clear, respectful script for a ${scenario.replace('-', ' ')} scenario with police. The script should:
@@ -28,6 +27,13 @@ export async function POST(request: NextRequest) {
          - Ser conciso pero completo
          
          Enfócate en la desescalada mientras proteges los derechos. Devuelve solo el texto del script, sin formato adicional.`;
+
+    // Initialize OpenAI client only when needed
+    const openai = new OpenAI({
+      apiKey: process.env.OPENROUTER_API_KEY || process.env.OPENAI_API_KEY || 'demo-key',
+      baseURL: "https://openrouter.ai/api/v1",
+      dangerouslyAllowBrowser: true,
+    });
 
     const completion = await openai.chat.completions.create({
       model: 'google/gemini-2.0-flash-001',
